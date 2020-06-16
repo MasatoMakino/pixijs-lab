@@ -1,5 +1,5 @@
-import { Application, Sprite } from "pixi.js";
-import { initLink, initApp } from "./onLoadImage";
+import { Sprite } from "pixi.js";
+import { initApp, initLink } from "./onLoadImage";
 
 const onDomContentsLoaded = () => {
   const W = 800;
@@ -9,17 +9,32 @@ const onDomContentsLoaded = () => {
   const img = Sprite.from("./150.png");
   app.stage.addChild(img);
 
-  const onLoadImage = () => {
-    img.x = W / 2 - img.texture.baseTexture.width / 2;
-    img.y = H / 2 - img.texture.baseTexture.height / 2;
-  };
-  if (img.texture.baseTexture.width !== 0) {
-    onLoadImage();
-  } else {
-    img.texture.baseTexture.on("loaded", onLoadImage);
-  }
+  onLoadedImage(img).then((sprite) => {
+    const baseTexture = sprite.texture.baseTexture;
+    sprite.x = W / 2 - baseTexture.width / 2;
+    sprite.y = H / 2 - baseTexture.height / 2;
+  });
 
   initLink();
+};
+
+/**
+ * Sprite.from("img")で生成されたSpriteの、画像ロード後の処理を指定する。
+ * テクスチャバッファに保存されているか否かにかかわらず、実行されることを保証する。
+ *
+ * @param sprite{Sprite}
+ * @return {Promise<Sprite>}
+ */
+const onLoadedImage = (sprite) => {
+  return new Promise((resolve, reject) => {
+    if (sprite.texture.baseTexture.width !== 0) {
+      resolve(sprite);
+    } else {
+      sprite.texture.baseTexture.once("loaded", () => {
+        resolve(sprite);
+      });
+    }
+  });
 };
 
 if (document.readyState !== "loading") {
