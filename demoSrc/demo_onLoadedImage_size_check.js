@@ -22,6 +22,9 @@ const onDomContentsLoaded = () => {
  * Sprite.from("img")で生成されたSpriteの、画像ロード後の処理を指定する。
  * テクスチャバッファに保存されているか否かにかかわらず、実行されることを保証する。
  *
+ * この関数はライブラリとして切り出してある。利用する場合はそちらをaddすること。
+ * https://github.com/MasatoMakino/pixijs-loader-util
+ *
  * @param sprite{Sprite}
  * @return {Promise<Sprite>}
  */

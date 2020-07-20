@@ -1,6 +1,10 @@
 import { Application, Sprite } from "pixi.js";
 import { initLink, initApp } from "./onLoadImage";
 
+/**
+ * img.texture.baseTexture.on("loaded")の挙動を確認するためのデモ。
+ * Mobile Safariの場合、bfcacheにより実行が保証されない。
+ */
 const onDomContentsLoaded = () => {
   const W = 800;
   const H = 600;

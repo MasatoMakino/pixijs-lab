@@ -1,6 +1,12 @@
-import { Application, Sprite } from "pixi.js";
-import { initLink, initApp } from "./onLoadImage";
+import { Sprite } from "pixi.js";
+import { initApp, initLink } from "./onLoadImage";
 
+/**
+ * 一般的なbfcache対策であるunloadハンドラを追加した場合の
+ * img.texture.baseTexture.on("loaded")の挙動を確認するためのデモ。
+ *
+ * 症状は改善せず、実行は担保されない。
+ */
 const onDomContentsLoaded = () => {
   const W = 800;
   const H = 600;
