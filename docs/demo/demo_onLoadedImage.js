@@ -163,7 +163,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var pixi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! pixi.js */ \"./node_modules/pixi.js/lib/pixi.es.js\");\n!(function webpackMissingModule() { var e = new Error(\"Cannot find module './onLoadImage'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\n\n/**\n * img.texture.baseTexture.on(\"loaded\")の挙動を確認するためのデモ。\n * Mobile Safariの場合、bfcacheにより実行が保証されない。\n */\n\nconst onDomContentsLoaded = () => {\n  const W = 800;\n  const H = 600;\n  const app = !(function webpackMissingModule() { var e = new Error(\"Cannot find module './onLoadImage'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(W, H);\n  const img = pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Sprite\"].from(\"./150.png\");\n  app.stage.addChild(img);\n\n  const onLoadImage = () => {\n    img.x = W / 2 - img.texture.baseTexture.width / 2;\n    img.y = H / 2 - img.texture.baseTexture.height / 2;\n  };\n\n  img.texture.baseTexture.on(\"loaded\", onLoadImage);\n  !(function webpackMissingModule() { var e = new Error(\"Cannot find module './onLoadImage'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }())();\n};\n\nif (document.readyState !== \"loading\") {\n  onDomContentsLoaded();\n} else {\n  document.addEventListener(\"DOMContentLoaded\", onDomContentsLoaded);\n}\n\n//# sourceURL=webpack:///./demoSrc/demo_onLoadedImage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var pixi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! pixi.js */ \"./node_modules/pixi.js/lib/pixi.es.js\");\n/* harmony import */ var _onLoadImage__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./onLoadImage */ \"./demoSrc/onLoadImage.js\");\n\n\n/**\n * img.texture.baseTexture.on(\"loaded\")の挙動を確認するためのデモ。\n * Mobile Safariの場合、bfcacheにより実行が保証されない。\n */\n\nconst onDomContentsLoaded = () => {\n  const W = 800;\n  const H = 600;\n  const app = Object(_onLoadImage__WEBPACK_IMPORTED_MODULE_1__[\"initApp\"])(W, H);\n  const img = pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Sprite\"].from(\"./150.png\");\n  app.stage.addChild(img);\n\n  const onLoadImage = () => {\n    img.x = W / 2 - img.texture.baseTexture.width / 2;\n    img.y = H / 2 - img.texture.baseTexture.height / 2;\n  };\n\n  img.texture.baseTexture.on(\"loaded\", onLoadImage);\n  Object(_onLoadImage__WEBPACK_IMPORTED_MODULE_1__[\"initLink\"])();\n};\n\nif (document.readyState !== \"loading\") {\n  onDomContentsLoaded();\n} else {\n  document.addEventListener(\"DOMContentLoaded\", onDomContentsLoaded);\n}\n\n//# sourceURL=webpack:///./demoSrc/demo_onLoadedImage.js?");
+
+/***/ }),
+
+/***/ "./demoSrc/onLoadImage.js":
+/*!********************************!*\
+  !*** ./demoSrc/onLoadImage.js ***!
+  \********************************/
+/*! exports provided: initApp, initLink */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initApp\", function() { return initApp; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initLink\", function() { return initLink; });\n/* harmony import */ var pixi_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! pixi.js */ \"./node_modules/pixi.js/lib/pixi.es.js\");\n\nfunction initApp(w = 800, h = 600) {\n  const app = new pixi_js__WEBPACK_IMPORTED_MODULE_0__[\"Application\"]({\n    width: w,\n    height: h\n  });\n  document.body.appendChild(app.view);\n  return app;\n}\nfunction initLink() {\n  const link = document.createElement(\"a\");\n  link.href = \"https://google.com\";\n  link.innerHTML = \"jump to google\";\n  const div = document.createElement(\"div\");\n  div.appendChild(link);\n  document.body.appendChild(div);\n}\n\n//# sourceURL=webpack:///./demoSrc/onLoadImage.js?");
 
 /***/ })
 
