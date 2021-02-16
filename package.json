@@ -15,7 +15,6 @@
     "gulp": "^4.0.2",
     "gulptask-demo-page": "https://github.com/MasatoMakino/gulptask-demo-page.git",
     "gulptask-dev-server": "https://github.com/MasatoMakino/gulptask-dev-server.git",
-    "gulptask-tsdoc": "https://github.com/MasatoMakino/gulptask-tsdoc.git",
     "husky": "^5.0.9",
     "pixi.js": "^5.3.7",
     "prettier": "^2.2.1",
@@ -26,7 +25,6 @@
   "scripts": {
     "start:dev": "gulp start_dev",
     "build": "gulp build",
-    "build:clean": "gulp build_clean",
     "checkout:docs": "git checkout HEAD ./docs/"
   },
   "husky": {
