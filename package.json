@@ -1,6 +1,6 @@
 {
   "name": "pixijs-lab",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Studies for Pixi.js.",
   "main": "index.js",
   "repository": "https://github.com/MasatoMakino/pixijs-lab.git",
