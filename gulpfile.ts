@@ -1,7 +1,7 @@
 const { parallel, series } = require("gulp");
 
-const server = require("gulptask-dev-server").generateTask("./docs/demo");
-const { bundleDemo, watchDemo } = require("gulptask-demo-page").generateTasks({
+const server = require("@masatomakino/gulptask-dev-server").generateTask("./docs/demo", {});
+const { bundleDemo, watchDemo } = require("@masatomakino/gulptask-demo-page").generateTasks({
   externalScripts: [],
 });
 
